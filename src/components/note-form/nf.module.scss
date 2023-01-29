@@ -1,0 +1,15 @@
+.form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.column {
+  display: flex;
+  gap: 2rem 5rem;
+}
+
+.item {
+  width: 100%;
+}

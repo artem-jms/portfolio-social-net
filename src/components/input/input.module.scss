@@ -1,0 +1,55 @@
+@import "src/index";
+
+.inputs {
+  position: relative;
+}
+
+.label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 24px;
+  font-weight: 500;
+  background-color: $body-background;
+}
+
+.input {
+  position: relative;
+  display: block;
+  border-radius: 8px;
+  outline: none;
+  border: 1px solid $buttons;
+  background-color: $buttons;
+  color: $text-color;
+  padding: 8px 40px 8px 8px;
+  font-size: 18px;
+  width: calc(100% - 48px);
+}
+
+.close {
+  font-weight: 500;
+  position: absolute;
+  top: calc(30px + 14px);
+  right: 10px;
+  user-select: none;
+  cursor: pointer;
+  color: $text-color;
+  opacity: .4;
+  transition: .15s;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  &:disabled {
+    pointer-events: none;
+    transition: .15s;
+    color: transparent;
+  }
+  &:hover {
+    opacity: 1;
+  }
+}

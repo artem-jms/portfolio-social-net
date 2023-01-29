@@ -1,0 +1,144 @@
+@import "src/index";
+
+.inputs {
+  position: relative;
+}
+
+.label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 24px;
+  font-weight: 500;
+  background-color: $body-background;
+}
+
+.input {
+  position: relative;
+  border-radius: 8px;
+  outline: none;
+  border: 1px solid $buttons;
+  background-color: $buttons;
+  color: $text-color;
+  font-size: 18px;
+  width: calc(100%);
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 38px;
+  gap: 5px 5px;
+  align-items: center;
+  margin: 0;
+  cursor: text;
+  padding: 8px 40px 8px 8px;
+}
+
+.input_ {
+  padding: 0;
+  border: none;
+  border-radius: 0;
+}
+
+.modal {
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  height: fit-content;
+  background-color: $buttons-active;
+  top: calc(100% + .5rem);
+  border-radius: 8px;
+  opacity: 0;
+  transition: .15s;
+  overflow: hidden;
+  overflow-y: auto;
+  max-height: calc(38px * 5);
+  &::-webkit-scrollbar-track {
+    margin: 1rem;
+  }
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-color: $thumb-color;
+  }
+  cursor: default;
+}
+
+.modalActive {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  height: 30px;
+  padding: 4px 8px;
+  &:hover {
+    cursor: pointer;
+    background-color: $item-color;
+  }
+}
+
+.close {
+  font-weight: 500;
+  position: absolute;
+  right: 10px;
+  user-select: none;
+  cursor: pointer;
+  color: $text-color;
+  opacity: .4;
+  transition: .15s;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  &:disabled {
+    pointer-events: none;
+    transition: .15s;
+    color: transparent;
+  }
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.close__tag {
+  height: 21px;
+  right: 4px;
+  opacity: 1;
+  position: relative;
+  top: unset;
+  color: $text-color;
+  &:disabled {
+    color: $text-color;
+  }
+}
+
+.tag {
+  border-radius: 4px;
+  position: relative;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: flex-start;
+  max-height: 20px;
+  padding: 0 4px;
+  background-color: #8FA998;
+  gap: 8px;
+  width: fit-content;
+  overflow: hidden;
+  cursor: default;
+}
+
+.tag h6 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 400;
+}
