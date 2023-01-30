@@ -4,14 +4,6 @@
   position: relative;
 }
 
-.label {
-  display: block;
-  margin-bottom: 8px;
-  font-size: 24px;
-  font-weight: 500;
-  background-color: $body-background;
-}
-
 .input {
   position: relative;
   border-radius: 8px;
@@ -51,17 +43,8 @@
   overflow: hidden;
   overflow-y: auto;
   max-height: calc(38px * 5);
-  &::-webkit-scrollbar-track {
-    margin: 1rem;
-  }
-  &::-webkit-scrollbar {
-    width: 4px;
-  }
-  &::-webkit-scrollbar-thumb {
-    border-radius: 3px;
-    background-color: $thumb-color;
-  }
   cursor: default;
+  @extend %scroller;
 }
 
 .modalActive {
@@ -79,6 +62,12 @@
     cursor: pointer;
     background-color: $item-color;
   }
+}
+
+%close__disabled {
+  pointer-events: none;
+  transition: .15s;
+  color: transparent;
 }
 
 .close {
@@ -100,13 +89,16 @@
   align-content: center;
   align-items: center;
   &:disabled {
-    pointer-events: none;
-    transition: .15s;
-    color: transparent;
+    @extend %close__disabled;
   }
   &:hover {
     opacity: 1;
   }
+}
+
+.closed {
+  opacity: 0;
+  @extend %close__disabled
 }
 
 .close__tag {

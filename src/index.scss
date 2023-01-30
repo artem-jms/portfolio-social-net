@@ -10,6 +10,38 @@ $light-green: #20BF55;
 $thumb-color: #8FA998;
 $item-color: #8FA998;
 
+%scroller {
+  &::-webkit-scrollbar-track {
+    margin: 1rem;
+  }
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-color: $thumb-color;
+  }
+}
+
+%input {
+  border: 1px solid $buttons;
+  background-color: $buttons;
+  color: $text-color;
+  border-radius: 8px;
+  padding: 8px 40px 8px 8px;
+  font-size: 18px;
+  transition: .45s;
+  &::placeholder {
+    color: $text-color;
+    opacity: .7;
+  }
+}
+
+%inputError {
+  transition: .45s;
+  border: 1px solid $red;
+}
+
 body {
   margin: 0;
   background-color: $body-background;

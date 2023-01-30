@@ -1,6 +1,7 @@
 import React, {FC, forwardRef, ForwardRefRenderFunction} from 'react';
 import classNames from "classnames";
 import md from './input.module.scss'
+import {Label} from "../label/Label.component";
 
 interface IInput {
     className?:string,
@@ -11,6 +12,8 @@ interface IInput {
     label?: string,
     limit?: number,
     removeClose?:boolean,
+    placeholder?:string,
+    error?:boolean
 }
 
 const InputComponent: ForwardRefRenderFunction<HTMLInputElement, IInput> = (
@@ -23,28 +26,34 @@ const InputComponent: ForwardRefRenderFunction<HTMLInputElement, IInput> = (
         label,
         removeClose= false,
         limit,
+        placeholder,
+        error= false,
     },
     ref
 ) => {
 
-
     return (
          <section className={md.inputs}>
-            {label && <label className={md.label}>{label}</label>}
+             <Label label={label} />
              <input
+                 placeholder={placeholder}
                  onChange={e => onChange(e.target.value)}
                  onFocus={onFocus}
                  onBlur={onBlur}
                  value={value}
-                 className={classNames(className, md.input)}
+                 className={classNames(className, md.input, {[md.error]: error})}
                  maxLength={limit}
                  ref={ref}
              />
-            <button
+            <span
                 onClick={() => {
                     if (value.length > 0) onChange('')
                 }}
-                disabled={(value.length === 0 || removeClose)} className={classNames(md.close)}>&#x2715;</button>
+                className={classNames(
+                    md.close,
+                    {[md.closed]: (value.length === 0 || removeClose)},)}>
+                &#x2715;
+            </span>
         </section>
     );
 };

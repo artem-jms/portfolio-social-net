@@ -1,28 +1,29 @@
-import React, {createRef, FC, forwardRef, useEffect, useRef, useState} from 'react';
+import React, {createRef, FC, useState} from 'react';
 import {Input} from "../input/input.component";
 import {useDispatch} from "../../hooks/useDispatch";
 import md from './ti.module.scss'
 import {ITag} from "../note-form/NoteForm.component";
 import classNames from "classnames";
-
-
+import {Label} from "../label/Label.component";
 
 interface ITagInput {
     className?: string,
     label?: string,
-    [propName: string]: any,
+    tags: ITag[],
+    setTags:  React.Dispatch<React.SetStateAction<ITag[]>>,
 }
 
 export const TagInput: FC<ITagInput> = (
     {
+        tags,
+        setTags,
         label,
         className
     }) => {
 
     const [input, setInput] = useState<string>('')
-    const [tags, setTags] = useState<ITag[]>([{title: '123'}])
     const { dispatchValue } = useDispatch(input, 150)
-    const [available, setAvailable] = useState<ITag[]>([
+    const [available] = useState<ITag[]>([
         { title: 'Popular tag 1' },
         { title: 'Popular tag 2' },
         { title: 'Popular tag 3' },
@@ -75,7 +76,7 @@ export const TagInput: FC<ITagInput> = (
 
     return (
         <section className={md.inputs}>
-            {label ? <label className={md.label}>{label}</label> : null}
+            <Label label={label} />
             <button
                 ref={fieldRef}
                 onClick={e => {
@@ -85,8 +86,8 @@ export const TagInput: FC<ITagInput> = (
                     onFocus={() => setActive(true)}
                     onBlur={() => setActive(false)}
                     className={md.input}>
-                {tags.map((tag) => {
-                    return <div className={md.tag}>
+                {tags.map((tag, index) => {
+                    return <div className={md.tag} key={index}>
                         {tag.title}
                         <span
                             onClick={() => removeTag(tag)}
@@ -94,6 +95,7 @@ export const TagInput: FC<ITagInput> = (
                     </div>
                 })}
                 <Input
+                    placeholder={'Add tags'}
                     value={input}
                     onChange={setInput}
                     onFocus={() => setActive(true)}
@@ -118,11 +120,11 @@ export const TagInput: FC<ITagInput> = (
                             e.preventDefault()
                             addOwn()
                         }}
-                        className={md.item}>Создать свой</div>}
+                        className={md.item}>Create tag: "{input}"</div>}
                 </span>
-                <button
+                <span
                     onClick={clearAll}
-                    disabled={!(tags.length > 0)} className={md.close}>&#x2715;</button>
+                    className={classNames(md.close, {[md.closed]: !(tags.length > 0)})}>&#x2715;</span>
             </button>
         </section>
     );

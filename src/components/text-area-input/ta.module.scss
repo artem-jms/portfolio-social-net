@@ -1,0 +1,20 @@
+@import "src/index";
+
+.textarea {
+  outline: none;
+  resize: none;
+  @extend %input;
+  @extend %scroller;
+  transition: .45s;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.errors {
+  transition: .45s;
+  @extend %inputError;
+}

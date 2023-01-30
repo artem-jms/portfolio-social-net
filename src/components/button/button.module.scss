@@ -1,0 +1,27 @@
+@import "src/index";
+
+.button {
+  border: 1px solid $buttons;
+  background-color: $buttons;
+  color: $text-color;
+  font-size: 18px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: .15s ease-in;
+  &:hover {
+    transform: scale(1.05);
+  }
+  &:active {
+    transition: .1s ease-in;
+    transform: scale(.9);
+  }
+}
+
+.confirm {
+  background-color: $green;
+}
+
+.cancel {
+  background-color: $body-background;
+}

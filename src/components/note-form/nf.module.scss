@@ -3,13 +3,32 @@
   display: flex;
   flex-direction: column;
   gap: 40px;
+  @media screen and (max-width: 479px) {
+    gap: 20px;
+  }
 }
 
 .column {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 2rem 5rem;
+  @media screen and (max-width: 479px) {
+    grid-template-columns: 1fr;
+    row-gap: 1rem;
+  }
 }
 
-.item {
-  width: 100%;
+.text__area {
+  display: flex;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row-reverse;
+  gap: 30px;
+  @media screen and (max-width: 479px) {
+    flex-direction: column;
+    gap: 20px;
+  }
 }

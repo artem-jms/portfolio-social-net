@@ -1,0 +1,9 @@
+@import "src/index";
+
+.label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 24px;
+  font-weight: 500;
+  background-color: $body-background;
+}
