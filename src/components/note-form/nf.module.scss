@@ -1,3 +1,5 @@
+@import "src/index";
+
 .form {
   margin-top: 20px;
   display: flex;
@@ -9,13 +11,9 @@
 }
 
 .column {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem 5rem;
-  @media screen and (max-width: 479px) {
-    grid-template-columns: 1fr;
-    row-gap: 1rem;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .text__area {

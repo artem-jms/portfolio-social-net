@@ -2,6 +2,7 @@ import React, {FC} from 'react';
 import {Routes, Route, Navigate} from "react-router-dom";
 import {Home} from "../../pages/home/home";
 import {NewNote} from "../note/NewNote.component";
+import {HOME_ROUTE, NEW_NOTE_ROUTE} from "../../utils/routes";
 
 interface IRoute {
     element: React.ReactNode,
@@ -13,11 +14,11 @@ export const ProjectRouterComponent: FC = () => {
     const routes: IRoute[] = [
         {
             element: <Home />,
-            path: '/',
+            path: HOME_ROUTE,
         },
         {
             element: <NewNote />,
-            path: '/new',
+            path: NEW_NOTE_ROUTE,
         },
         {
             element: <Navigate to={'/'} replace />,

@@ -6,7 +6,7 @@ export const NewNote: FC = () => {
     return (
         <Container type={TContainer.wrapper}>
             <h1>Create new note</h1>
-            <NoteForm></NoteForm>
+            <NoteForm />
         </Container>
     );
 };

@@ -1,0 +1,88 @@
+@import "src/index";
+
+.circle {
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  opacity: .3;
+  width: 64px;
+  height: 64px;
+  padding: 0;
+  border-radius: 50%;
+  border: 3px solid $blue;
+  background-color: transparent;
+  object-fit: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  text-decoration: none;
+  &:visited, &:active, &:focus {
+    color: $text-color;
+  }
+  & img {
+    transform: scale(.5);
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    user-select: none;
+    pointer-events: none;
+    transition: .15s ease-in-out;
+    animation: 1.5s infinite feather;
+    animation-play-state: paused;
+  }
+  transition: .15s ease-in-out;
+  & span {
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 8px;
+    top: calc(100% + 20px);
+    opacity: 0;
+    background-color: $blue;
+    position: absolute;
+    min-width: 140px;
+    width: fit-content;
+    height: fit-content;
+    &::before {
+      content: '';
+      position: absolute;
+      top: -7px;
+      width: 15px;
+      height: 15px;
+      z-index: -1;
+      background-color: $blue;
+      transform: rotate(45deg);
+    }
+  }
+  &:hover {
+    animation: loading 1s ease;
+    opacity: 1;
+    transform: scale(.95);
+    & img {
+      animation-play-state: running;
+      transform: scale(.55);
+    }
+    & span {
+      opacity: 1;
+    }
+  }
+}
+
+@keyframes feather {
+  0% { rotate: unset; }
+  50% { rotate: -45deg; }
+  100% {
+    opacity: 1;
+    rotate: 0;
+  }
+}
+
+.options {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

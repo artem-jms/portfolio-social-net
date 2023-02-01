@@ -1,3 +1,55 @@
+@import "src/index";
+
 .wrapper {
   padding: 3vh 10vw;
 }
+
+.posts {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 0;
+}
+
+.selectable {
+  position: relative;
+  padding: 30px 10%;
+  border: none;
+  background-color: $body-background;
+  display: flex;
+  justify-content: center;
+  color: $text-color;
+  font-weight: 500;
+  & div { opacity: .7 }
+  &:hover {
+    background-color: $buttons;
+    cursor: pointer;
+  }
+  & span {
+    border-radius: 8px;
+    position: absolute;
+    bottom: 0;
+    height: 4px;
+    background-color: $blue;
+    width: 50%;
+    opacity: 0;
+    transition: .1s ease-in;
+  }
+}
+
+.active {
+  & div { opacity: 1 }
+  & span {
+    transition: .15s ease-in;
+    background-color: $blue-active;
+    opacity: 1;
+  }
+}
+

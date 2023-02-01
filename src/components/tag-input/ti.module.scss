@@ -23,6 +23,10 @@
   padding: 8px 40px 8px 8px;
 }
 
+.input__disabled {
+  cursor: default;
+}
+
 .input_ {
   padding: 0;
   border: none;
@@ -45,6 +49,7 @@
   max-height: calc(38px * 5);
   cursor: default;
   @extend %scroller;
+  z-index: 1;
 }
 
 .modalActive {
@@ -62,6 +67,11 @@
     cursor: pointer;
     background-color: $item-color;
   }
+}
+
+.item__disabled:hover {
+  cursor: default;
+  background-color: transparent;
 }
 
 %close__disabled {
@@ -122,7 +132,7 @@
   justify-content: flex-start;
   max-height: 20px;
   padding: 0 4px;
-  background-color: #8FA998;
+  background-color: $item-color;
   gap: 8px;
   width: fit-content;
   overflow: hidden;

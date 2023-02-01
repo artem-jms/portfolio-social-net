@@ -4,11 +4,24 @@ $buttons: #212D40;
 $buttons-active: #364156;
 
 $red: #D66853;
-$green: #8FA998; // #A4B494
+$green: #6D98BA; // #A4B494
 $light-green: #20BF55;
-// form
-$thumb-color: #8FA998;
-$item-color: #8FA998;
+$thumb-color: #6D98BA;
+$item-color: #6D98BA;
+$blue: #6D98BA;
+$blue-active: #6D98BA;
+
+body {
+  margin: 0;
+  background-color: $body-background;
+  color: $text-color;
+  font-family: 'Raleway', sans-serif;
+  font-variant-numeric: lining-nums;
+  font-feature-settings: 'lnum';
+  -moz-font-feature-settings: 'lnum=1';
+  -webkit-font-feature-settings: 'lnum';
+  -o-font-feature-settings: 'lnum';
+}
 
 %scroller {
   &::-webkit-scrollbar-track {
@@ -19,7 +32,7 @@ $item-color: #8FA998;
   }
   &::-webkit-scrollbar-thumb {
     border-radius: 3px;
-    background-color: $thumb-color;
+    background-color: $blue;
   }
 }
 
@@ -42,12 +55,7 @@ $item-color: #8FA998;
   border: 1px solid $red;
 }
 
-body {
-  margin: 0;
-  background-color: $body-background;
-  color: $text-color;
-}
 
 .wrapper {
-  padding: 30px 10vw;
+  padding: 3vh 10vw;
 }

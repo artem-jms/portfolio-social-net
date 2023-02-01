@@ -16,7 +16,7 @@ interface IInput {
     error?:boolean
 }
 
-const InputComponent: ForwardRefRenderFunction<HTMLInputElement, IInput> = (
+const InputComponent: ForwardRefRenderFunction<HTMLInputElement, IInput & Partial<HTMLInputElement>> = (
     {
         className,
         value,
@@ -28,6 +28,7 @@ const InputComponent: ForwardRefRenderFunction<HTMLInputElement, IInput> = (
         limit,
         placeholder,
         error= false,
+        disabled,
     },
     ref
 ) => {
@@ -36,6 +37,7 @@ const InputComponent: ForwardRefRenderFunction<HTMLInputElement, IInput> = (
          <section className={md.inputs}>
              <Label label={label} />
              <input
+                 disabled={disabled}
                  placeholder={placeholder}
                  onChange={e => onChange(e.target.value)}
                  onFocus={onFocus}
